@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = ProfileRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-public class ProfileRestController extends AbstractProfileController {
+public class ProfileRestController extends AbstractProfileController { //todo покрыть тестами
     public static final String REST_URL = "/api/profile";
 
     @GetMapping

@@ -37,7 +37,7 @@ public class FileUtil {
     }
 
     public static Resource download(String fileLink) {
-        Path path = Paths.get(fileLink);
+        Path path = Paths.get(fileLink); // todo переписать upload как здесь
         try {
             Resource resource = new UrlResource(path.toUri());
             if (resource.exists() || resource.isReadable()) {

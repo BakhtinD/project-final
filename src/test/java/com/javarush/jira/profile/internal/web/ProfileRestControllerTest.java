@@ -5,4 +5,6 @@ import com.javarush.jira.AbstractControllerTest;
 
 class ProfileRestControllerTest extends AbstractControllerTest {
 
+
+
 }
