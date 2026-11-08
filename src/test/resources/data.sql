@@ -8,31 +8,44 @@ from PROFILE;
 
 delete
 from ACTIVITY;
-alter
-sequence ACTIVITY_ID_SEQ restart with 1;
+-- alter sequence ACTIVITY_ID_SEQ restart with 1;
+
+alter table ACTIVITY alter column ID restart with 1;
+
 delete
 from TASK;
-alter
-sequence TASK_ID_SEQ restart with 1;
+-- alter sequence TASK_ID_SEQ restart with 1;
+
+alter table TASK alter column ID restart with 1;
+
 delete
 from SPRINT;
-alter
-sequence SPRINT_ID_SEQ restart with 1;
+-- alter
+-- sequence SPRINT_ID_SEQ restart with 1;
+alter table SPRINT alter column ID restart with 1;
+
 delete
 from PROJECT;
-alter
-sequence PROJECT_ID_SEQ restart with 1;
+-- alter
+-- sequence PROJECT_ID_SEQ restart with 1;
+alter table PROJECT alter column ID restart with 1;
+
+
 
 delete
 from USERS;
-alter
-sequence USERS_ID_SEQ restart with 1;
+
+-- alter
+-- sequence USERS_ID_SEQ restart with 1;
+alter table USERS
+    alter column ID restart with 1;
 
 insert into USERS (EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, DISPLAY_NAME)
 values ('user@gmail.com', '{noop}password', 'userFirstName', 'userLastName', 'userDisplayName'),
        ('admin@gmail.com', '{noop}admin', 'adminFirstName', 'adminLastName', 'adminDisplayName'),
        ('guest@gmail.com', '{noop}guest', 'guestFirstName', 'guestLastName', 'guestDisplayName'),
-       ('manager@gmail.com', '{noop}manager', 'managerFirstName', 'managerLastName', 'managerDisplayName');
+       ('manager@gmail.com', '{noop}manager', 'managerFirstName', 'managerLastName',
+        'managerDisplayName');
 
 -- 0 DEV
 -- 1 ADMIN
@@ -80,12 +93,14 @@ values ('Data', 'epic', 'in_progress', 1, 1, '2023-05-15 09:05:10'),
        ('task-7', 'task', 'canceled', 2, 5, '2023-06-14 09:28:10');
 
 
-insert into ACTIVITY(AUTHOR_ID, TASK_ID, UPDATED, COMMENT, TITLE, DESCRIPTION, ESTIMATE, TYPE_CODE, STATUS_CODE,
+insert into ACTIVITY(AUTHOR_ID, TASK_ID, UPDATED, COMMENT, TITLE, DESCRIPTION, ESTIMATE, TYPE_CODE,
+                     STATUS_CODE,
                      PRIORITY_CODE)
 values (1, 1, '2023-05-15 09:05:10', null, 'Data', null, 3, 'epic', 'in_progress', 'low'),
        (2, 1, '2023-05-15 12:25:10', null, 'Data', null, null, null, null, 'normal'),
        (1, 1, '2023-05-15 14:05:10', null, 'Data', null, 4, null, null, null),
-       (1, 2, '2023-05-15 12:05:10', null, 'Trees', 'Trees desc', 4, 'epic', 'in_progress', 'normal');
+       (1, 2, '2023-05-15 12:05:10', null, 'Trees', 'Trees desc', 4, 'epic', 'in_progress',
+        'normal');
 
 insert into USER_BELONG (OBJECT_ID, OBJECT_TYPE, USER_ID, USER_TYPE_CODE, STARTPOINT, ENDPOINT)
 values (1, 2, 2, 'task_developer', '2023-06-14 08:35:10', '2023-06-14 08:55:00'),
